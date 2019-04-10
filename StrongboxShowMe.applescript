@@ -13,7 +13,7 @@ on menu_click(mList)
 	
 	-- This overly-long line calls the menu_recurse function with
 	-- two arguments: r, and a reference to the top-level menu
-	tell application "System Events" to my menu_click_recurse(r, ((process appName)'s ¬
+	tell application "System Events" to my menu_click_recurse(r, ((process appName)'s √Ç
 		(menu bar 1)'s (menu bar item topMenu)'s (menu topMenu)))
 end menu_click
 
@@ -39,25 +39,10 @@ end menu_click_recurse
 
 
 
-(*tell application "System Events"*)
-
-(*
-tell application "System Events"
-	tell process "MacPass"
-		if frontmost is true then
-			tell application "System Events" to set visible of application process "MacPass" to false
-		else if frontmost is false then
-			set frontmost to true
-			keystroke "f" using command down
-			
-		end if
-	end tell
-end tell
-*)
 
 if application "Strongbox" is not frontmost then
 	tell application "System Events" to set visible of application process "Strongbox" to true
-	menu_click({"Strongbox", "Edit", "Find…"})
+	menu_click({"Strongbox", "Edit", "Find√â"})
 	
 else if application "Strongbox" is frontmost then
 	tell application "System Events" to set visible of application process "Strongbox" to false
@@ -67,6 +52,6 @@ end if
 
 
 
---menu_click({"MacPass", "Edit", "Find…"})
+--menu_click({"MacPass", "Edit", "Find√â"})
 
 (*end tell*)
