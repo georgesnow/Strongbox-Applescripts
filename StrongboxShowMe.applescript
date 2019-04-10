@@ -52,6 +52,6 @@ end if
 
 
 
---menu_click({"MacPass", "Edit", "FindÉ"})
+
 
 (*end tell*)
