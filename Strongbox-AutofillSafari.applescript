@@ -68,7 +68,7 @@ on menu_click(mList)
 	
 	-- This overly-long line calls the menu_recurse function with
 	-- two arguments: r, and a reference to the top-level menu
-	tell application "System Events" to my menu_click_recurse(r, ((process appName)'s Â
+	tell application "System Events" to my menu_click_recurse(r, ((process appName)'s ¬
 		(menu bar 1)'s (menu bar item topMenu)'s (menu topMenu)))
 end menu_click
 
@@ -92,7 +92,7 @@ end menu_click_recurse
 
 tell application "Strongbox" to activate
 
-menu_click({"Strongbox", "Edit", "FindÉ"}) (* special elipse pasted as 1 character for ....*)
+menu_click({"Strongbox", "Edit", "Find…"}) (* special elipse pasted as 1 character for ....*)
 menu_click({"Strongbox", "Edit", "Select All"})
 delay 0.1
 menu_click({"Strongbox", "Edit", "Paste"})
@@ -106,13 +106,13 @@ display alert "AutoFill" message "Choose entry or create new then select - Optio
 if button returned of result is "Username" then
 	
 	delay 0.1
-	menu_click({"Strongbox", "Database", "Copy Username"})
+	menu_click({"Strongbox", "Item", "Copy Username"})
 	delay 0.1
 	set infoClipboard to the clipboard
 	delay 0.1
 	set the clipboard to emptyClip
 	
-	menu_click({"Strongbox", "Database", "Copy Password"})
+	menu_click({"Strongbox", "Item", "Copy Password"})
 	delay 0.1
 	set pClipboard to the clipboard
 	delay 0.1
@@ -128,19 +128,19 @@ if button returned of result is "Username" then
 	set the clipboard to pClipboard
 	delay 10
 	set the clipboard to emptyClip
-	tell application "Strongbox-AutofillSafari" to if it is running then quit
+	tell application "MacPassAutofill-Prompt" to if it is running then quit
 	
 	
 	
 else if button returned of result is "Both" then
 	delay 0.1
-	menu_click({"Strongbox", "Database", "Copy Username"})
+	menu_click({"Strongbox", "Item", "Copy Username"})
 	delay 0.1
 	set infoClipboard to the clipboard
 	delay 0.1
 	set the clipboard to emptyClip
 	
-	menu_click({"Strongbox", "Database", "Copy Password"})
+	menu_click({"Strongbox", "Item", "Copy Password"})
 	delay 0.1
 	set pClipboard to the clipboard
 	delay 0.1
@@ -164,20 +164,20 @@ else if button returned of result is "Both" then
 	set the clipboard to emptyClip
 	set infoClipboard to emptyClip
 	set pClipboard to emptyClip
-	tell application "Strongbox-AutofillSafari" to if it is running then quit
+	tell application "MacPassAutofill-Prompt" to if it is running then quit
 	
 else if button returned of result is "Cancel" then
 	set the clipboard to emptyClip
 	set infoClipboard to emptyClip
 	set pClipboard to emptyClip
 	display dialog "bailing out..."
-	tell application "Strongbox-AutofillSafari" to if it is running then quit
+	tell application "MacPassAutofill-Prompt" to if it is running then quit
 	
 	
 else
 	error number -128
 	error number -1728
-	tell application "Strongbox-AutofillSafari" to if it is running then quit
+	tell application "MacPassAutofill-Prompt" to if it is running then quit
 end if
 end run
 
