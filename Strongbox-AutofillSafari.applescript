@@ -145,7 +145,7 @@ else if button returned of result is "Both" then
 	set pClipboard to the clipboard
 	delay 0.1
 	set the clipboard to emptyClip
-	
+	Prompt
 	
 	
 	
@@ -164,20 +164,20 @@ else if button returned of result is "Both" then
 	set the clipboard to emptyClip
 	set infoClipboard to emptyClip
 	set pClipboard to emptyClip
-	tell application "MacPassAutofill-Prompt" to if it is running then quit
+	tell application "Strongbox-AutofillSafari" to if it is running then quit
 	
 else if button returned of result is "Cancel" then
 	set the clipboard to emptyClip
 	set infoClipboard to emptyClip
 	set pClipboard to emptyClip
 	display dialog "bailing out..."
-	tell application "MacPassAutofill-Prompt" to if it is running then quit
+	tell application "Strongbox-AutofillSafari" to if it is running then quit
 	
 	
 else
 	error number -128
 	error number -1728
-	tell application "MacPassAutofill-Prompt" to if it is running then quit
+	tell application "Strongbox-AutofillSafari" to if it is running then quit
 end if
 end run
 
